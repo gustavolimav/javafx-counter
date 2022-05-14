@@ -1,4 +1,4 @@
-package com.lima.contador;
+package com.lima.counter;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Label labelTitle = new Label("Contador");
+        Label labelTitle = new Label("Counter");
         Label labelNumber = new Label("0");
 
         Button buttonIncrement = new Button("+");
@@ -24,12 +24,12 @@ public class HelloApplication extends Application {
         VBox contentBox = new VBox();
 
         buttonDecrement.setOnAction(e -> {
-            contador--;
+            counter--;
             _updateLabelNumber(labelNumber);
         });
 
         buttonIncrement.setOnAction(e -> {
-            contador++;
+            counter++;
             _updateLabelNumber(labelNumber);
         });
 
@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
         contentBox.setAlignment(Pos.CENTER);
         contentBox.setSpacing(10);
 
-        String pathCss = getClass().getResource("/com/lima/contador/css/Contador.css").toExternalForm();
+        String pathCss = getClass().getResource("/com/lima/counter/css/Counter.css").toExternalForm();
         Scene scene = new Scene(contentBox, 400, 400);
         scene.getStylesheets().add(pathCss);
         scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
@@ -65,17 +65,17 @@ public class HelloApplication extends Application {
     }
 
     private void _updateLabelNumber(Label label) {
-        label.setText(Integer.toString(contador));
+        label.setText(Integer.toString(counter));
 
         label.getStyleClass().remove("red");
         label.getStyleClass().remove("green");
 
-        if(contador > 0) {
+        if(counter > 0) {
             label.getStyleClass().add("green");
-        } else if (contador < 0) {
+        } else if (counter < 0) {
             label.getStyleClass().add("red");
         }
     }
 
-    private int contador = 0;
+    private int counter = 0;
 }
