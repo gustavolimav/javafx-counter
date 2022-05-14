@@ -1,7 +1,6 @@
 package com.lima.contador;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,12 +25,12 @@ public class HelloApplication extends Application {
 
         buttonDecrement.setOnAction(e -> {
             contador--;
-            labelNumber.setText(Integer.toString(contador));
+            _updateLabelNumber(labelNumber);
         });
 
         buttonIncrement.setOnAction(e -> {
             contador++;
-            labelNumber.setText(Integer.toString(contador));
+            _updateLabelNumber(labelNumber);
         });
 
         buttonDecrement.getStyleClass().add("button");
@@ -63,6 +62,19 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    private void _updateLabelNumber(Label label) {
+        label.setText(Integer.toString(contador));
+
+        label.getStyleClass().remove("red");
+        label.getStyleClass().remove("green");
+
+        if(contador > 0) {
+            label.getStyleClass().add("green");
+        } else if (contador < 0) {
+            label.getStyleClass().add("red");
+        }
     }
 
     private int contador = 0;
