@@ -128,7 +128,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.lima.contador.contador/com.lima.contador.HelloApplication
+                            <mainClass>com.lima.contador/com.lima.contador.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
