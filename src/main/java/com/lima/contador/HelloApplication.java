@@ -24,6 +24,16 @@ public class HelloApplication extends Application {
         HBox buttonBox = new HBox();
         VBox primaryBox = new VBox();
 
+        buttonDecrement.setOnAction(e -> {
+            contador--;
+            labelNumber.setText(Integer.toString(contador));
+        });
+
+        buttonIncrement.setOnAction(e -> {
+            contador++;
+            labelNumber.setText(Integer.toString(contador));
+        });
+
         buttonBox.getChildren().add(buttonDecrement);
         buttonBox.getChildren().add(buttonIncrement);
         buttonBox.setAlignment(Pos.CENTER);
@@ -44,4 +54,6 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    private int contador = 0;
 }
