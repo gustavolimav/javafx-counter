@@ -1,0 +1,32 @@
+.background {
+    -fx-background-color: #000;
+    -fx-font-family: 'Oswald', sans-serif;
+    -fx-text-fill: #eee;
+}
+
+.title {
+    -fx-text-fill: #48b2ee;
+    -fx-font-size: 36px;
+}
+
+.number {
+    -fx-text-fill: #eee;
+    -fx-font-size: 28px;
+}
+
+.button {
+    -fx-background-color: #fff;
+    -fx-text-fill: #48b2ee;
+    -fx-font-size: 24px;
+    -fx-min-width: 60px;
+    -fx-min-height: 60px;
+    -fx-background-radius: 30px;
+}
+
+.green {
+    -fx-text-fill: #4bdb82;
+}
+
+.red {
+    -fx-text-fill: #ee4139;
+}

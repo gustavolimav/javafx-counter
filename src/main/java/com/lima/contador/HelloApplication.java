@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         Button buttonDecrement = new Button("-");
 
         HBox buttonBox = new HBox();
-        VBox primaryBox = new VBox();
+        VBox contentBox = new VBox();
 
         buttonDecrement.setOnAction(e -> {
             contador--;
@@ -34,18 +34,28 @@ public class HelloApplication extends Application {
             labelNumber.setText(Integer.toString(contador));
         });
 
+        buttonDecrement.getStyleClass().add("button");
+        buttonIncrement.getStyleClass().add("button");
+
+        labelNumber.getStyleClass().add("number");
+        labelTitle.getStyleClass().add("title");
+
         buttonBox.getChildren().add(buttonDecrement);
         buttonBox.getChildren().add(buttonIncrement);
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setSpacing(10);
 
-        primaryBox.getChildren().add(buttonBox);
-        primaryBox.getChildren().add(labelNumber);
-        primaryBox.getChildren().add(labelTitle);
-        primaryBox.setAlignment(Pos.CENTER);
-        primaryBox.setSpacing(10);
+        contentBox.getChildren().add(labelTitle);
+        contentBox.getChildren().add(labelNumber);
+        contentBox.getChildren().add(buttonBox);
+        contentBox.getStyleClass().add("background");
+        contentBox.setAlignment(Pos.CENTER);
+        contentBox.setSpacing(10);
 
-        Scene scene = new Scene(primaryBox);
+        String pathCss = getClass().getResource("/com/lima/contador/css/Contador.css").toExternalForm();
+        Scene scene = new Scene(contentBox, 400, 400);
+        scene.getStylesheets().add(pathCss);
+        scene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
         primaryStage.setScene(scene);
         primaryStage.show();
